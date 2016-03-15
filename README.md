@@ -45,6 +45,7 @@ This is a collection of styleguides for development of apps on M&S. Adapted from
 [go]: go.md
 [govuk-elements]: http://govuk-elements.herokuapp.com/
 [html]: html.md
+[java]: java.md
 [js]: js.md
 [pr]: pull-requests.md
 [rb]: ruby.md
