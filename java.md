@@ -50,7 +50,52 @@ The build should include a call to the Checkstyle ruleset. It may also call
 other static analysis tools such as [PMD](https://pmd.github.io/) or
 [FindBugs](http://findbugs.sourceforge.net/)
 
+An example build script configured for gradle is
+[here](https://gist.github.com/clarkster/e139320867ed3bdf9fb4)
+
+
 ## Integrated Development Environment Setup
 
-Both eclipse and Intellij support a Checkstyle plugin which can be installed and
-configured to use the ruleset.
+It is recommended that all team developers set up an IDE with the
+code rules and validations built in. This should make the rules transparent to
+adhere to and allow you to make use of the built in formatting tools.
+
+### Intellij
+
+The recommended setup for Intellij 15 is:
+
+* Install the Checkstyle plugin
+* Configure the Checkstyle plugin to point to the project settings as a remote
+URL. This will cause any Checkstyle errors to display as errors in the IDE.
+* Download these
+[Intellij settings](java-intellij-config.xml),
+save the file to your
+[local library](https://www.jetbrains.com/idea/help/project-and-ide-settings.html),
+(`~/IdeaIC15/codestyles` on Mac) and apply as the IDE default.
+
+Note that this settings file is based on one supplied by google, incorporating
+changes from an [open PR](https://github.com/google/styleguide/pull/96), and
+updating the company package to com.mns.
+
+### Eclipse
+
+The recommended setup for Eclipse is similar:
+
+* Install the Checkstyle plugin for Eclipse
+* Configure the plugin to point to the project settings
+* Apply the code formatting profile to match these settings. This can be
+obtained from [here](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml)
+
+### Git Pre-Commit Hook
+
+An alternative or an addition to running the checks in an IDE is to configure
+a client-side
+[Pre-Commit Hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) so
+that style checks and unit tests are run automatically on `svn commit`
+
+An example pre-commit hook for a gradle project is
+[here](https://raw.githubusercontent.com/selesse/git-hooks/master/java/pre-commit-gradle-tests)
+
+Note that this client-side validation is merely a helper to stop accidentally
+committing some non-valid code. The main server-side validation is configured
+to take place as part of the build.
