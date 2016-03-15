@@ -10,6 +10,8 @@ This is a collection of styleguides for development of apps on M&S. Adapted from
 
 [HTML][html]
 
+[Java][java]
+
 [Javascript][js]
 
 [Ruby][rb]
