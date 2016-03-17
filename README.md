@@ -14,6 +14,8 @@ This is a collection of styleguides for development of apps on M&S. Adapted from
 
 [Javascript][js]
 
+[Python][py]
+
 [Ruby][rb]
 
 ## Tools, processes and other guidelines
@@ -48,6 +50,7 @@ This is a collection of styleguides for development of apps on M&S. Adapted from
 [java]: java.md
 [js]: js.md
 [pr]: pull-requests.md
+[py]: python.md
 [rb]: ruby.md
 [readme]: use-of-READMEs.md
 [rubocop]: using-rubocop.md
