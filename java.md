@@ -50,9 +50,7 @@ The build should include a call to the Checkstyle ruleset. It may also call
 other static analysis tools such as [PMD](https://pmd.github.io/) or
 [FindBugs](http://findbugs.sourceforge.net/)
 
-An example build script configured for gradle is
-[here](https://gist.github.com/clarkster/e139320867ed3bdf9fb4)
-
+An [example build script configured for gradle](https://gist.github.com/clarkster/e139320867ed3bdf9fb4).
 
 ## Integrated Development Environment Setup
 
@@ -83,8 +81,7 @@ The recommended setup for Eclipse is similar:
 
 * Install the Checkstyle plugin for Eclipse
 * Configure the plugin to point to the project settings
-* Apply the code formatting profile to match these settings. This can be
-obtained from [here](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml)
+* Apply [the code formatting profile](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) to match these settings.
 
 ### Git Pre-Commit Hook
 
@@ -93,8 +90,7 @@ a client-side
 [Pre-Commit Hook](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks) so
 that style checks and unit tests are run automatically on `svn commit`
 
-An example pre-commit hook for a gradle project is
-[here](https://raw.githubusercontent.com/selesse/git-hooks/master/java/pre-commit-gradle-tests)
+An [example pre-commit hook for a gradle project](https://raw.githubusercontent.com/selesse/git-hooks/master/java/pre-commit-gradle-tests).
 
 Note that this client-side validation is merely a helper to stop accidentally
 committing some non-valid code. The main server-side validation is configured
