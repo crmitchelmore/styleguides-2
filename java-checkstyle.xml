@@ -12,7 +12,7 @@
     Local Modificiations:
      - Use severity=error by default
      - Remove requirement for public methods to have javadoc
-     - Package imports use com.mands as company name
+     - Package imports use com.mns as company name
 
  -->
 
