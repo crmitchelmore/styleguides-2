@@ -18,6 +18,8 @@ This is a collection of styleguides for development of apps on M&S. Adapted from
 
 [Ruby][rb]
 
+[Swift][swift]
+
 ## Tools, processes and other guidelines
 
 [APIs][api]
@@ -52,6 +54,7 @@ This is a collection of styleguides for development of apps on M&S. Adapted from
 [pr]: pull-requests.md
 [py]: python.md
 [rb]: ruby.md
+[swift]: swift.md
 [readme]: use-of-READMEs.md
 [rubocop]: using-rubocop.md
 [security]: basic-security.md
