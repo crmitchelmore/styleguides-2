@@ -1,14 +1,30 @@
 #Swift code style
 
-###Naming
+## Table of Contents
 
-Use descriptive names with camel case for classes, methods, variables, etc. Class names should be capitalized, while method names and variables should start with a lower case letter.
+- [Naming](#naming)
+- [Whitespace](#whitespace)
+- [Comments](#comments)
+- [Closure Expressions](#closure-expressions)
+- [Avoid Using Force-Unwrapping of Optionals](#avoid-using-force-unwrapping-of-optionals)
+- [Avoid Using Implicitly Unwrapped Optionals](#avoid-using-implicitly-unwrapped-optionals)
+- [Avoid redundant type declarations](#avoid-redundant-type-declarations)
+- [When specifying a type, always associate the colon with the identifier](#when-specifying-a-type,-always-associate-the-colon--with-the-identifier)
+- [Only explicitly refer to `self` when required](#only-explicitly-refer-to-`self`-when-required)
+- [Prefer structs over classes](#prefer-structs-over-classes)
+- [Omit type parameters where possible](#omit-type-parameters-where-possible)
+- [Protocol Conformance](#protocol-conformance)
+
+### Naming
+
+Use descriptive names with camel case for classes, methods, variables, etc. Class names should be capitalized, while method names and variables should start with a lower case letter. View properties should have their type following the name. 
 Preferred:
 ```
 private let maximumWidgetCount = 100
 
 class WidgetContainer {
   var widgetButton: UIButton
+  var widgetTextField: UITextField
   let widgetHeightPercentage = 0.85
 }
 ```
@@ -19,21 +35,23 @@ let MAX_WIDGET_COUNT = 100
 
 class app_widgetContainer {
   var wBut: UIButton
+  var wBut: UITextField
   let wHeightPct = 0.85
 }
 ```
 
 ####Enumerations
 
-Use UpperCamelCase for enumeration values:
+Use UpperCamelCase for enumeration values. Prefer one enum value per line:
 
+```
 enum Shape {
   case Rectangle
   case Square
   case Triangle
   case Circle
 }
-
+```
 ### Whitespace
 
  * Tabs, not spaces.
@@ -188,7 +206,7 @@ extension History {
 		self.events = events
 	}
 
-	var whenVictorious: () -> () {
+	var whenVictorious: () -> Void {
 		return {
 			self.rewrite()
 		}
@@ -200,7 +218,7 @@ _Rationale:_ This makes the capturing semantics of `self` stand out more in clos
 
 ### Prefer structs over classes
 
-Unless you require functionality that can only be provided by a class (like identity or deinitializers), implement a struct instead.
+Unless you require functionality that can only be provided by a class with reference semantics (like identity or deinitializers), implement a struct instead.
 
 Note that inheritance is (by itself) usually _not_ a good reason to use classes, because polymorphism can be provided by protocols, and implementation reuse can be provided through composition.
 
@@ -280,7 +298,7 @@ struct Composite<T> {
 
 _Rationale:_ Omitting redundant type parameters clarifies the intent, and makes it obvious by contrast when the returned type takes different type parameters.
 
-Protocol Conformance
+### Protocol Conformance
 
 When adding protocol conformance to a class, prefer adding a separate class extension for the protocol methods. This keeps the related methods grouped together with the protocol and can simplify instructions to add a protocol to a class with its associated methods.
 
@@ -309,7 +327,7 @@ class MyViewcontroller: UIViewController, UITableViewDataSource, UIScrollViewDel
 }
 ```
 
-Closure Expressions
+### Closure Expressions
 
 Use trailing closure syntax only if there's a single closure expression parameter at the end of the argument list. Give the closure parameters descriptive names.
 
@@ -346,3 +364,16 @@ attendeeList.sort { a, b in
   a > b
 }
 ```
+
+When defining a closure as a parameter that has a void return type.
+
+Preferred:
+
+```
+func doSomething(callback: (String) -> void)
+```
+
+Not Preferred:
+
+```
+func doSomething(callback: (String) -> ())
