@@ -62,7 +62,7 @@ Use `POST` to create one or multiple Resources. Use `PUT` to update or create a 
 ### Actions or Complex operations
 Avoid actions or verbs in the URL. In special cases where these are needed, such as when a resource is moving to another resource (so state is changing against two Resources), perform the operation using a `POST`.
 e.g. 
-    `POST` `/basket/items/{id}/saveforlater`
+    `POST` `/basket/items/{id}/save-for-later`
 
 Search is a common example where a verb is commonly accepted in the URI.
 
@@ -145,12 +145,14 @@ Generate consistent error structures. Our general recommendation is to always ha
 
 
 ## Todo
+- Authentication and Authorization
 - Detail the use of `Patch`
 - Health endpoints
 - Hypermedia pattern
 - Casing in attributes/fields (and use of abbreviation in naming)
 - Headers indicating latency from dependencies
 - `RateLimit-Remaining` header
+- Localisation and Internationalisation
 - Events / event sourcing
 
 
