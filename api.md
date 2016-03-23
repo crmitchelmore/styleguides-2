@@ -147,11 +147,12 @@ Generate consistent error structures. Our general recommendation is to always ha
 ## Todo
 - Authentication and Authorization
 - Detail the use of `Patch`
-- Health endpoints
+- Content types and character encodings
 - Hypermedia pattern
 - Casing in attributes/fields (and use of abbreviation in naming)
 - Headers indicating latency from dependencies
 - `RateLimit-Remaining` header
+- Health endpoints
 - Localisation and Internationalisation
 - Events / event sourcing
 
