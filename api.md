@@ -92,10 +92,11 @@ HTTP status codes are not appropriate for the response body. Never use a 200 for
 #### Success
 - `200`: Request succeeded for a `GET` call, for a `DELETE` or `PATCH` call that completed synchronously, or for a `PUT` call that synchronously updated an existing resource
 - `201`: Request succeeded for a `POST` call that completed synchronously, or for a `PUT` call that synchronously created a new resource
-- `202` for times when the data is valid, but we've queued the persistence for background processing, as described in [RFC 7231](http://tools.ietf.org/html/rfc7231#section-6.3.3):
+- `202`: Request succeeded but we've queued the persistence for background processing, as described in [RFC 7231](http://tools.ietf.org/html/rfc7231#section-6.3.3):
 
   > The request has been accepted for processing, but the processing has not
   > been completed.
+- `204 No Content`: Request succeeded, but no response body will be returned.  
 
 #### Authentication and Authorization error codes
 - `401 Unauthorized`: Request failed because user is not authenticated
