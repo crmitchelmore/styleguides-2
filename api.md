@@ -30,6 +30,10 @@ Collection resource names should be plural nouns, e.g. `/customers`. This helps 
 ### Leaky abstractions
 Avoid leaky abstractions in your URIs, field names and data structures. Ensure your clients don't care and don't know that your backend is for example a Mongo database, SAP, or an enterprise IBM product. That backend may change and you don't want to impact your (potentially many hundreds of) clients. 
 
+### IDs
+Where possible use IDs that we are well known within the business domain. Be clear between those IDs which are published (which have been committed to supporting and not breaking), versus private IDs (that are a current implementation detail).
+
+
 ### Todo
 - Request IDs
 - Paging
@@ -82,6 +86,8 @@ Avoid exposing HTML through an API. You have no guarantee that a client can easi
 
 ### HTTP status codes
 HTTP status codes are not appropriate for the response body. Never use a 200 for an API that has returned an error. Apart from being wrong and unexpected, it is difficult for clients to handle, and will also be cached at potentially multiple points.
+
+**Some specific codes are highlighted below, but this list is by no means exhaustive.**
 
 #### Success
 - `200`: Request succeeded for a `GET` call, for a `DELETE` or `PATCH` call that completed synchronously, or for a `PUT` call that synchronously updated an existing resource
@@ -160,3 +166,4 @@ Generate consistent error structures. Our general recommendation is to always ha
 ## References (and heavily indebted to)
 - https://github.com/interagent/http-api-design
 - https://github.com/paypal/api-standards/
+- https://www.gov.uk/service-manual/making-software/apis
