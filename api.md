@@ -104,8 +104,8 @@ All the responses must use HTTP response status codes correctly (`2xx` = success
 #### Authentication and Authorization error codes
 - `401 Unauthorized`: Request failed because user is not authenticated
 - `403 Forbidden`: Request failed because user does not have authorization to access a specific resource
-- `405 Method not allowed`: Request failed due to incorrect method used (e.g.: `GET` used when it should be a `POST`). 
-- 
+- `405 Method not allowed`: Request failed due to incorrect method used (e.g.: `GET` used when it should be a `POST`)
+ 
 #### Make errors useful
 - `422 Unprocessable Entity` for validation errors, as described in [RFC 2918](http://tools.ietf.org/html/rfc4918#section-11.2):
 
@@ -156,9 +156,14 @@ Generate consistent error structures. Our general recommendation is to always ha
 ### Supporting caching
 All API responses must set the correct `cache-control` and `concurrency control` HTTP headers to deliver a simple and usable API and to avoid needless network roundtrips and optimise the end user experience.  
 There are three basic mechanics for managing caching:
-1.	Freshness. The use of `Cache-control:max-age` directive to inform (and be informed) for how many seconds something can be cached for.
-2.	Validation. Checking for stale data within a cache can be done by utilising the `last-modified` header.
-3.	Invalidation. Where a cached entity is changed through a subsequent request (such as changing a basket by adding or removing items) the cache should itself be invalidated and fully refreshed regardless of `max-age` values.
+
+1. Freshness
+  - the use of `Cache-control:max-age` directive to inform (and be informed) for how many seconds something can be cached for
+2. Validation
+  - checking for stale data within a cache can be done by utilising the `last-modified` header
+3. Invalidation
+  - where a cached entity is changed through a subsequent request (such as changing a basket by adding or removing items) the cache should itself be invalidated and fully refreshed regardless of `max-age` values
+
 The API's themselves must reflect and respect cache control headers passed to them from underlying systems and services and work on a worst-case response.
 
 ## Todo
