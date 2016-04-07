@@ -7,6 +7,9 @@
 
 ## Foundations
 
+### Defining Routes
+Each route exposed as an API  must be independent of all others, each must not share state with any other and they must always be transparent and stateless. This is intended to simplify maintenance and maximize reuse.
+
 ### TLS
 Always require secure connections with TLS without exception. 
 
@@ -66,7 +69,7 @@ Use `POST` to create one or multiple Resources. Use `PUT` to update or create a 
 ### Actions or Complex operations
 Avoid actions or verbs in the URL. In special cases where these are needed, such as when a resource is moving to another resource (so state is changing against two Resources), perform the operation using a `POST`.
 e.g. 
-    `POST` `/basket/items/{id}/save-for-later`
+    `POST` `/basket/v2/items/{id}/save-for-later`
 
 Search is a common example where a verb is commonly accepted in the URI.
 
@@ -85,7 +88,7 @@ Avoid exposing HTML through an API. You have no guarantee that a client can easi
 
 
 ### HTTP status codes
-HTTP status codes are not appropriate for the response body. Never use a 200 for an API that has returned an error. Apart from being wrong and unexpected, it is difficult for clients to handle, and will also be cached at potentially multiple points.
+All the responses must use HTTP response status codes correctly (`2xx` = success; `3xx` = redirection, `4xx` = client data error, `5xx` = server error) and  HTTP status codes are not appropriate for the response body. Never use a 200 for an API that has returned an error. Apart from being wrong and unexpected, it is difficult for clients to handle, and will also be cached at potentially multiple points.
 
 **Some specific codes are highlighted below, but this list is by no means exhaustive.**
 
@@ -101,7 +104,8 @@ HTTP status codes are not appropriate for the response body. Never use a 200 for
 #### Authentication and Authorization error codes
 - `401 Unauthorized`: Request failed because user is not authenticated
 - `403 Forbidden`: Request failed because user does not have authorization to access a specific resource
-
+- `405 Method not allowed`: Request failed due to incorrect method used (e.g.: `GET` used when it should be a `POST`). 
+- 
 #### Make errors useful
 - `422 Unprocessable Entity` for validation errors, as described in [RFC 2918](http://tools.ietf.org/html/rfc4918#section-11.2):
 
@@ -149,7 +153,13 @@ Generate consistent error structures. Our general recommendation is to always ha
         "message": "No Order found"
       }
 
-
+### Supporting caching
+All API responses must set the correct `cache-control` and `concurrency control` HTTP headers to deliver a simple and usable API and to avoid needless network roundtrips and optimise the end user experience.  
+There are three basic mechanics for managing caching:
+1.	Freshness. The use of `Cache-control:max-age` directive to inform (and be informed) for how many seconds something can be cached for.
+2.	Validation. Checking for stale data within a cache can be done by utilising the `last-modified` header.
+3.	Invalidation. Where a cached entity is changed through a subsequent request (such as changing a basket by adding or removing items) the cache should itself be invalidated and fully refreshed regardless of `max-age` values.
+The API's themselves must reflect and respect cache control headers passed to them from underlying systems and services and work on a worst-case response.
 
 ## Todo
 - Authentication and Authorization
