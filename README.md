@@ -20,6 +20,8 @@ This is a collection of styleguides for development of apps on M&S. Adapted from
 
 ## Tools, processes and other guidelines
 
+[Technology selection and Architecture Decision Records (ADRs)][adr]
+
 [APIs][api]
 
 [Basic security guidance][security]
@@ -39,6 +41,7 @@ This is a collection of styleguides for development of apps on M&S. Adapted from
 (Leaving this here for now. We don't have an equivalent atm.)
 [govuk-elements][govuk-elements] – layout, typography, colour, images, icons, forms, buttons and data used on GOV.UK.
 
+[adr]: adr.md
 [alpha]: https://github.com/alphagov/styleguides
 [api]: api.md
 [css]: css.md
