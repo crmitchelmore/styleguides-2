@@ -34,7 +34,7 @@ Avoid leaky abstractions in your URIs, field names and data structures. Ensure y
 Where possible use IDs that we are well known within the business domain. Be clear between those IDs which are published (which have been committed to supporting and not breaking), versus private IDs (that are a current implementation detail).
 
 ### Naming fields and resources
-When naming things, use the language for that particular domain. Avoid abbreviations unless it is part of the domain language (i.e. "PDP") or a very well understood abbreviation, such as "ID" or "URI". Is the name human readible and optimised for a human? Is it something that could be understood by a business user or someone new to the API?
+When naming things, use the language for that particular domain. Avoid abbreviations unless it is part of the domain language (i.e. "PDP") or a very well understood abbreviation, such as "ID" or "URI". Is the name optimised for a human? Is it something that could be understood by a business user or someone new to the API?
 
 ### Todo
 - Request IDs
