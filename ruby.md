@@ -2,7 +2,7 @@
 
 Code is read much more often than it is written. The guidelines provided here
 are intended to improve the readability of Ruby code and make it consistent
-across the wide spectrum of GDS projects.
+across the wide spectrum of M&S projects.
 
 A style guide is about consistency. Consistency with this style guide is
 important. Consistency within a project is more important. Consistency within
