@@ -151,7 +151,16 @@ Generate consistent error structures. Our general recommendation is to always ha
         "message": "No Order found"
       }
 
+### Rate Limit Headers
 
+Rate limit requests from clients to protect the health of the service and maintain high service quality for other clients.
+Our recommendation is to set the headers
+
+      RateLimit-Limit - the rate limit ceiling for that given request
+      RateLimit-Remaining - the number of requests left for the current time window
+      RateLimit-Reset - the remaining window before the rate limit resets in seconds
+
+#### 
 
 ## Todo
 - Authentication and Authorization
@@ -160,7 +169,6 @@ Generate consistent error structures. Our general recommendation is to always ha
 - Hypermedia pattern
 - Casing in attributes/fields 
 - Headers indicating latency from dependencies
-- `RateLimit-Remaining` header
 - Health endpoints
 - Localisation and Internationalisation
 - Events / event sourcing
