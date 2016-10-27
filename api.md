@@ -36,6 +36,8 @@ Where possible use IDs that we are well known within the business domain. Be cle
 ### Naming fields and resources
 When naming things, use the language for that particular domain. Avoid abbreviations unless it is part of the domain language (i.e. "PDP") or a very well understood abbreviation, such as "ID" or "URI". Is the name optimised for a human? Is it something that could be understood by a business user or someone new to the API?
 
+The casing of fields should be selected based on what is most conveniant for the consumers of the API. So if many consumers will be Java then camel case will be the most appropriate (providing the least friction to integrate) but if many will be Ruby then snake case will better fit. Using this logic we have decided that all our core APIs will use camel case seeing as a large number of the teams are working with Java and JavaScript.
+
 ### Todo
 - Request IDs
 - Paging
@@ -158,7 +160,6 @@ Generate consistent error structures. Our general recommendation is to always ha
 - Detail the use of `Patch`
 - Content types and character encodings
 - Hypermedia pattern
-- Casing in attributes/fields 
 - Headers indicating latency from dependencies
 - `RateLimit-Remaining` header
 - Health endpoints
