@@ -81,7 +81,8 @@ The recommended setup for Eclipse is similar:
 
 * Install the Checkstyle plugin for Eclipse
 * Configure the plugin to point to the project settings
-* Apply [the code formatting profile](https://github.com/google/styleguide/blob/gh-pages/eclipse-java-google-style.xml) to match these settings.
+* Apply [the checkstyle profile](java-checkstyle.xml)
+* Apply [the code formatting profile](eclipse-java-google-style.xml) to match these settings.
 
 ### Git Pre-Commit Hook
 
